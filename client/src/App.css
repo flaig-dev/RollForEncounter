@@ -41,10 +41,15 @@
   border: 3px solid #282c34;
   margin: auto;
   width: 85%;
-  color: red;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+.App-user-input p {
+  color: black;
+  font-weight: bold;
   text-align: left;
-  align-content: flex-start;
-  align-items: flex-start;
 }
 
 .App-link {
