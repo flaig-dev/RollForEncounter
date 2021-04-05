@@ -13,6 +13,16 @@ const client = new ApolloClient({
 
 // const client = ...
 
+fetch('./encounters.json', {
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  }
+
+})
+  .then(res => res.json())
+  .then(json => console.log(json));
+
 client // NEEDS TO BE REMOVED AFTER LOCAL SERVER REPLACED
   .query({
     query: gql`

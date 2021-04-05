@@ -5,8 +5,9 @@
     "\\client\\public",
     "\\client\\src",
     "\\server",
-    "\\server\\src"
+    "\\server\\src",
+    "\\server\\src\\datasources"
   ],
-  "SelectedNode": "\\client\\src\\EncounterGenerator.js",
+  "SelectedNode": "\\server\\src\\context.js",
   "PreviewInSolutionExplorer": false
 }
