@@ -3,37 +3,62 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, gql, useQuery } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://48p1r2roz4.sse.codesandbox.io', //NEEDS TO BE REPLACED WITH LOCAL SERVER
-  //LOCAL SERVER http://localhost:4000/
-  cache: new InMemoryCache()
+  uri: 'http://localhost:4000/', 
+  cache: new InMemoryCache(),
 });
 
-// const client = ...
 
-fetch('./encounters.json', {
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  }
-
-})
-  .then(res => res.json())
-  .then(json => console.log(json));
-
-client // NEEDS TO BE REMOVED AFTER LOCAL SERVER REPLACED
+client // This works but is needs varriables
   .query({
     query: gql`
-      query GetRates {
-        rates(currency: "USD") {
-          currency
+      query {
+        encounter(name: "Coastal", minlvl: 5) 
+        {
+          id
+          result
+          terrain
         }
       }
     `
   })
   .then(result => console.log(result));
+
+
+//Trying to figure out if this is the solution with varriables 
+
+const GET_ENCOUNTER = new ApolloClient({
+  uri: 'http://localhost:4000/',
+  cache: new InMemoryCache(),
+  variables: { name: 'Coastal' },
+  query: gql`
+      query Encounter($name: String, $minlvl: Int) {
+        encounter(name: $name, minlvl: 5) {
+          id
+          result
+          terrain
+        }
+    }
+    `
+})
+
+
+export default function EncounterDetails () {
+  const { loading, error, data } = useQuery(GET_ENCOUNTER, {
+    variables: {name: 'Coastal'},
+  })
+
+  if (loading) return null
+  if (error) return `Error! ${error}`
+
+  console.log(data.encounter)
+  return (data.encounter)
+}
+
+//end testing
+
 
 ReactDOM.render(
   <React.StrictMode>

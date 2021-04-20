@@ -11,9 +11,13 @@ function App() {
         <h5>D&D 5e Random Encounter Generator</h5>
       </header>
       <body className="App-body">
-         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pulvinar diam in sapien feugiat iaculis. Nam fringilla sit amet ipsum nec feugiat. Ut vel faucibus enim, sed pulvinar nibh. Aliquam erat volutpat. Duis commodo libero eu condimentum rutrum. Vestibulum ut varius velit, et maximus neque. Vestibulum ut lorem accumsan, dignissim nunc sit amet, consequat leo. Sed neque tellus, eleifend quis ligula facilisis, accumsan vulputate felis. Donec vel elit nec ligula fermentum fringilla. Cras sed magna at mauris porta tristique. Ut semper ligula mi, nec iaculis ex hendrerit convallis.
-         </p>
+        <h6>
+          <br />
+          Roll for Encounter generates random Dungeons and Dragons 5th Edition encounters to be used during your party's campaign travels. <br />
+          To use this application, select the total travel time in hours, terrain the party is travelling through, and the average party member's level range. 
+          The resulting encounter (should one occur) will be displayed below.
+          <br /> <br />
+         </h6>
         <EncounterGenerator />     
       </body>
     </div>
