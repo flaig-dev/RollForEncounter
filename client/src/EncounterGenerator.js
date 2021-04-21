@@ -8,8 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faDiceD20 } from '@fortawesome/free-solid-svg-icons'
 //test start
-//import { ApolloClient, InMemoryCache, gql, useQuery } from '@apollo/client';
+import { ApolloClient, InMemoryCache, gql, useQuery, Query } from '@apollo/client'
 //import { Query } from 'react-apollo'
+import { GET_ENCOUNTER } from './graphql'
 //test end
 library.add(faDiceD20)
 
@@ -58,6 +59,17 @@ const EncounterGenerator = (props) => {
     </Form>
     <br />
     <Button color="primary" size="lg" block style={{ margin: 'auto', width: '50%' }}><FontAwesomeIcon icon="dice-d20" /> Generate Encounter <FontAwesomeIcon icon="dice-d20" /></Button>
+    <Query query= {GET_ENCOUNTER} variables={{ time, terrain, level }}>
+      {({ loading, error, data }) => {
+        if (loading) return null
+        if (error) {
+          console.log(error)
+          return <p>There was an error, please refresh and try again</p>
+        }
+        console.log(data.encounter)
+        return { data }
+      }}
+    </Query>
     <hr />
     <p>
       Resulting Encounter:

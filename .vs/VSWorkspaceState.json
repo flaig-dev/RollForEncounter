@@ -4,10 +4,11 @@
     "\\client",
     "\\client\\public",
     "\\client\\src",
+    "\\client\\src\\graphql",
     "\\server",
     "\\server\\src",
     "\\server\\src\\datasources"
   ],
-  "SelectedNode": "\\client\\src\\index.js",
+  "SelectedNode": "\\client\\src\\EncounterGenerator.js",
   "PreviewInSolutionExplorer": false
 }
