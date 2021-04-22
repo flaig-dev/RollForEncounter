@@ -15,7 +15,7 @@ client // This works but is needs varriables
   .query({
     query: gql`
       query {
-        encounter(name: "Coastal", minlvl: 5) 
+        encounter(terrain: "Coastal", minlvl: 5) 
         {
           id
           result
