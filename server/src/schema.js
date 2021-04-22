@@ -96,7 +96,7 @@ const typeDefs = gql`
     """
     Returns random encounter
     """
-    encounter(terrain: String, minlvl: Int): Encounter
+    encounter(time: Int, terrain: String, level: Int): Encounter
 
     """
     Returns monster

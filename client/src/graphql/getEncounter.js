@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export default gql`
-query encounter($terrain: String, $minlvl: Int) {
-           encounter(terrain: $terrain, minlvl: $level) 
+query encounter($time: Int, $terrain: String, $level: Int) {
+           encounter(time: $time, terrain: $terrain, level: $level) 
           {
             id
             result

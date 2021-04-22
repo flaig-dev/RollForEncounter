@@ -11,22 +11,6 @@ const client = new ApolloClient({
 });
 
 
-client // This works but is needs varriables
-  .query({
-    query: gql`
-      query {
-        encounter(terrain: "Coastal", minlvl: 5) 
-        {
-          id
-          result
-          terrain
-        }
-      }
-    `
-  })
-  .then(result => console.log(result));
-
-
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
@@ -34,12 +18,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-//ReactDOM.render(
-//  <React.StrictMode>
-//    <App />
-//  </React.StrictMode>,
-//  document.getElementById('root')
-//);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

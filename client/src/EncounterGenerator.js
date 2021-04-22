@@ -13,14 +13,14 @@ library.add(faDiceD20)
 
 
 const EncounterGenerator = (props) => {
-  const [time, setTime] = useState({ label: '1', value: '1' })
+  const [time, setTime] = useState({ label: '1', value: 1 })
   const [terrain, setTerrain] = useState({ label: 'Arctic', value: 'Arctic' })
   const [level, setLevel] = useState({ label: 'Levels 1-4', value: 1 })
   const element = <FontAwesomeIcon icon="dice-d20" />
 
   const GetEncounter = (time, terrain, level) => {
     const { loading, error, data } = useQuery(GET_ENCOUNTER, {
-      variables: { terrain: terrain, minlvl: level },
+      variables: { time: time.value, terrain: terrain.value, level: level.value },
     })
     console.log(data)
     if (loading) return null
@@ -33,6 +33,7 @@ const EncounterGenerator = (props) => {
 
   const result = GetEncounter(time, terrain, level)
 
+
   const GetMonsters = () => {
     //version 2.0
     //parse things out
@@ -40,6 +41,7 @@ const EncounterGenerator = (props) => {
   }
 
   const monsters = GetMonsters(result)
+
 
   return (<div className="App-user-input">
     <Form className="Encounter-Form" style={{ display: 'flex', }}>
@@ -49,8 +51,8 @@ const EncounterGenerator = (props) => {
           id="Time"
           isSearchable
           onChange={(e) => setTime(e)}
-          options={[{ label: '1', value: '1' }, { label: '2', value: '2' }, { label: '3', value: '3' }, { label: '4', value: '4' }, { label: '5', value: '5' },
-          { label: '6', value: '6' }, { label: '7', value: '7' }, { label: '8', value: '8' }]}
+          options={[{ label: '1', value: 1 }, { label: '2', value: 2 }, { label: '3', value: 3 }, { label: '4', value: 4 }, { label: '5', value: 5 },
+          { label: '6', value: 6 }, { label: '7', value: 7 }, { label: '8', value: 8 }]}
           value={time}
         />
       </FormGroup>

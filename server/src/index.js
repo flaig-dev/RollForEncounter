@@ -3,8 +3,6 @@ const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./schema');
 const resolvers = require('./resolvers');
 const context = require('./context.js');
-const Encounters = require('./datasources/encounters.json');
-const Monsters = require('./datasources/monsters.json');
 
 
 // Set up Apollo Server
