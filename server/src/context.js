@@ -14,7 +14,7 @@ module.exports = ({ req, res }) => ({
     }
     const RandomInt = getRandomInt();
     const RandomNumber = Math.random() * 100
-    if (RandomNumber < (Time * 10))
+    if (RandomNumber < (Time * 15))
       return {
         id: 1,
         terrain: Terrain[0].name,
