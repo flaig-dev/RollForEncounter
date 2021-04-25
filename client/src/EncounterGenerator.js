@@ -18,6 +18,7 @@ const EncounterGenerator = (props) => {
   const [level, setLevel] = useState({ label: 'Levels 1-4', value: 1 })
   const element = <FontAwesomeIcon icon="dice-d20" />
 
+  //Take arguments from form and pass to query builder, return encounter
   const GetEncounter = (time, terrain, level) => {
     const { loading, error, data } = useQuery(GET_ENCOUNTER, {
       variables: { time: time.value, terrain: terrain.value, level: level.value },
@@ -33,15 +34,12 @@ const EncounterGenerator = (props) => {
 
   const result = GetEncounter(time, terrain, level)
 
-
   const GetMonsters = () => {
     //version 2.0
-    //parse things out
-    //run multiple queries for monsters
+    //parse things out, run multiple queries based on data returned from GetEncounter, retrun stat blocks
   }
 
   const monsters = GetMonsters(result)
-
 
   return (<div className="App-user-input">
     <Form className="Encounter-Form" style={{ display: 'flex', }}>
@@ -80,7 +78,7 @@ const EncounterGenerator = (props) => {
       </FormGroup>
     </Form>
     <br />
-    <Button color="primary" size="lg" block style={{ margin: 'auto', width: '50%' }}><FontAwesomeIcon icon="dice-d20" /> Generate Encounter <FontAwesomeIcon icon="dice-d20" /></Button>
+    <Button color="primary" size="lg" disabled block style={{ margin: 'auto', width: '50%' }}><FontAwesomeIcon icon="dice-d20" /> Always Rolling for Encounters <FontAwesomeIcon icon="dice-d20" /></Button>
     <hr />
     <p>
       Resulting Encounter:
