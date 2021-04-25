@@ -14,7 +14,7 @@ module.exports = ({ req, res }) => ({
     }
     const RandomInt = getRandomInt();
     const RandomNumber = Math.random() * 100
-    if (RandomNumber < (Time * 15))
+    if (RandomNumber < (Time * 15)) //Checks the percent likeliness of encounter occurance and returns result
       return {
         id: 1,
         terrain: Terrain[0].name,

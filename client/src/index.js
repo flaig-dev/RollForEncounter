@@ -5,12 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ApolloClient, InMemoryCache, gql, ApolloProvider } from '@apollo/client';
 
+// Set up apollo-client to point at the server
 const client = new ApolloClient({
   uri: 'http://localhost:4000/', 
   cache: new InMemoryCache(),
 });
 
-
+//Render the app wrapped in ApolloProvider to allow for GraphQL requests
 ReactDOM.render(
   <ApolloProvider client={client}>
     <App />
